@@ -23,11 +23,6 @@ namespace StrategyPatternReview
      
     public abstract class Car
     {
-        protected string _upgrades;
-
-        public double Cost;
-
-        public string Description;
         public abstract double GetTotal();
         public abstract string GetDescription();
     }
@@ -68,6 +63,8 @@ namespace StrategyPatternReview
     public abstract class UpgradeDecorator: Car
     {
         public Car Car;
+        public double Cost;
+        public string Description;
 
         public override double GetTotal()
         {
@@ -97,15 +94,6 @@ namespace StrategyPatternReview
             Car = car;
             Cost = 2000;
             Description = "Remote Start";
-        }
-        public override string GetDescription()
-        {
-            return $"{Car.GetDescription()}, {Description}";
-        }
-
-        public override double GetTotal()
-        {
-            return Car.GetTotal() + Cost;
         }
     }
 
